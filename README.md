@@ -5,7 +5,7 @@
 3. Import AAR library file
 4. Call API interface
 
-![image](https://github.com/joybudz/joybudz/blob/main/images/2.png)
+![image](https://github.com/joybudz/joybudz/blob/main/images/1.png)
 ![image](https://github.com/joybudz/joybudz/blob/main/images/2.png)
 ![image](https://github.com/joybudz/joybudz/blob/main/images/3.png)
 ![image](https://github.com/joybudz/joybudz/blob/main/images/4.png)
