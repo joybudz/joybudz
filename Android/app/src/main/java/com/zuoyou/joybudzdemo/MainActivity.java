@@ -3,13 +3,14 @@ package com.zuoyou.joybudzdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.zuoyou.joybudzaar.AppContext;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AppContext.IResultCallback {
     private Button mBtClick;
     private Button mBtClick1;
     private Button mBtClick2;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Creating an API object
         AppContext joybudz = AppContext.getInstance();
-        joybudz.initBle(this);
+        joybudz.initBle(this,this);
 
         //Connection and initialization of earphone
         mBtClick = (Button) findViewById(R.id.btnTest);
@@ -68,6 +69,31 @@ public class MainActivity extends AppCompatActivity {
             {
                 joybudz.getTRData();
                 Toast.makeText(MainActivity.this, AppContext.strTRData, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    @Override
+    public void sendEuler(String sEuler) {
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.e("=====SP_Client----", sEuler);
+//                UnityPlayer.UnitySendMessage("AndroidManager", "GetEuler", sEuler);
+//                Cocos2dxJavascriptJavaBridge.evalString("window.GetEuler(\""+sEuler+"\");");
+            }
+        });
+    }
+
+    @Override
+    public void sendQuat(String sQuat) {
+        Log.e("=====SP_Client----", sQuat);
+        this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Log.e("=====SP_Client----", sQuat);
+//                UnityPlayer.UnitySendMessage("AndroidManager", "GetQuaternion", sQuat);
+//                Cocos2dxJavascriptJavaBridge.evalString("window.GetQuaternion(\""+sQuat+"\");");
             }
         });
     }

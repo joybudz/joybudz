@@ -1,4 +1,3 @@
-include ':JoybudzLib'
-include ':FastBleLib'
+include ':joybudzaar'
 include ':app'
 rootProject.name = "JoybudzDemo"
